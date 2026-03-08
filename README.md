@@ -8,6 +8,6 @@ graphs
 Dp
 
 Platforms 
-COding NInjas 
+Coding NInjas 
 Leetcode
-COde 360
+Code 360
