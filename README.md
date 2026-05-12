@@ -41,7 +41,6 @@ Coding NInjas
 Leetcode
 
 
-64928107
 
 
 
