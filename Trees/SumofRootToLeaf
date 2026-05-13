@@ -1,1 +1,30 @@
+class Solution {
+    int ans=0;
+    public int sumNumbers(TreeNode root) {
+        sum(root,0);
+        return ans;
+    }
 
+
+    public int sum(TreeNode root,int sum){
+        if(root==null){
+            return 0;
+        }
+
+
+        if(root!=null){
+            sum=sum*10+root.val;
+        }
+
+        if(root.left==null && root.right==null){
+            ans=ans+sum;
+        }
+
+        sum(root.left,sum);
+    sum(root.right,sum);
+
+    return ans;
+    
+    
+}
+}
