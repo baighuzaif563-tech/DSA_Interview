@@ -1,1 +1,35 @@
+class Main{
+
+
+public static void fun(int n){
+if(n==0){
+return ;
+
+}
+print(n);
+fun(n-1);
+print(n);
+}
+
+
+psvm(String[] args){
+
+int x=5;
+sop(fun(x));
+}
+}
+
+ex->
+| Step | Function Call / Return | Output     |
+| ---- | ---------------------- | ---------- |
+| 1    | incDec(3) called       | prints `3` |
+| 2    | incDec(2) called       | prints `2` |
+| 3    | incDec(1) called       | prints `1` |
+| 4    | incDec(0) called       | -          |
+| 5    | return from 0          | -          |
+| 6    | back to incDec(1)      | prints `1` |
+| 7    | back to incDec(2)      | prints `2` |
+| 8    | back to incDec(3)      | prints `3` |
+
+
 
