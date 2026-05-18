@@ -19,16 +19,18 @@ fun(5);
 
 example
 
-| Step | Function Call | Returned Value | Stack State |
-| --- | --- | --- | --- |
-| 1 | ``fun(5)`` | waits for ``fun(4)`` | ``fun(5)`` |
-| 2 | ``fun(4)`` | waits for ``fun(3)`` | ``fun(5) ``→ ``fun(4)`` |
-| 3 | ``fun(3)`` | waits for ``fun(2)`` | ``fun(5) ``→ ``fun(4) ``→ ``fun(3)`` |
-| 4 | ``fun(2)`` | waits for ``fun(1)`` | ``fun(5) ``→ ``fun(4) ``→ ``fun(3) ``→ ``fun(2)`` |
-| 5 | ``fun(1)`` | waits for ``fun(0)`` | ``fun(5) ``→ ``fun(4) ``→ ``fun(3) ``→ ``fun(2) ``→ ``fun(1)`` |
-| 6 | ``fun(0)`` | returns ``1`` | base case reached |
-
-
-
+| Step | Function Call | Action / Return         |
+| ---- | ------------- | ----------------------- |
+| 1    | fun(5)        | waits for 5 * fun(4)`  |
+| 2    | fun(4)        | waits for 4 * fun(3)`  |
+| 3    | fun(3)        | waits for 3 * fun(2)`  |
+| 4    | fun(2)        | waits for 2 * fun(1)`  |
+| 5    | fun(1)        | waits for 1 * fun(0)`  |
+| 6    | fun(0)        | base case → returns `1` |
+| 7    | fun(1)        | returns 1 * 1 = 1`     |
+| 8    | fun(2)        | returns 2 * 1 = 2`     |
+| 9    | fun(3)        | returns 3 * 2 = 6`     |
+| 10   | fun(4)        | returns 4 * 6 = 24`    |
+| 11   | fun(5)        | returns 5 * 24 = 120`  |
 
 
