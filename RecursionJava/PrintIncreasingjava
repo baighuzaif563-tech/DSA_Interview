@@ -1,0 +1,34 @@
+class main{
+
+
+
+public static void increasing(int n){
+
+if(n==0){
+
+return;
+}
+increasing(n-1);
+sop(n);
+
+}
+psvm(string[] args){
+
+int n=2;
+sop(increasing(n));
+}
+}
+
+
+ex->
+| Step | Function Call / Return | Output     |
+| ---- | ---------------------- | ---------- |
+| 1    | increasing(2) called   | -          |
+| 2    | increasing(1) called   | -          |
+| 3    | increasing(0) called   | -          |
+| 4    | `n==0` so return       | -          |
+| 5    | back to increasing(1)  | prints `1` |
+| 6    | back to increasing(2)  | prints `2` |
+
+
+
