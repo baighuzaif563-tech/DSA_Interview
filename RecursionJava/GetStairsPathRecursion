@@ -1,0 +1,130 @@
+Problem Description
+
+
+GET STAIRS PATH
+
+Problem:
+You can climb either:
+1 step
+2 steps
+3 steps
+
+Find all possible ways to reach n = 3 stairs.
+
+------------------------------------------------
+
+TREE DIAGRAM
+
+                         3
+              /----------|----------\
+            -1          -2          -3
+           /             |            \
+          2              1             0
+       /--|--\         / | \            |
+     -1  -2  -3      -1 -2 -3        ""
+     /     \            |   
+    1       0           0
+  / | \      |          |
+-1 -2 -3    ""         ""
+ |    
+ 0
+ |
+""
+
+------------------------------------------------
+
+PATH FORMATION
+
+From bottom to top:
+
+0  -> ""
+1  -> "1"
+
+2  -> "11"
+      "2"
+
+3  -> "111"
+      "12"
+      "21"
+      "3"
+
+------------------------------------------------
+
+FINAL ANSWER
+
+[
+ "111",
+ "12",
+ "21",
+ "3"
+]
+
+------------------------------------------------
+
+RECURSION FLOW
+
+f(3)
+
+→ take 1 step → f(2)
+→ take 2 step → f(1)
+→ take 3 step → f(0)
+
+------------------------------------------------
+
+BASE CASES
+
+if(n == 0)
+return [""]
+
+if(n < 0)
+return []
+
+------------------------------------------------
+
+
+
+// Code
+Fun stairs(int n){
+
+//Base Case
+if(n==0){
+ArrayList<Intger>list=new Arraylist<>();
+list.add("");
+return list;
+}
+//Return Empty LIst
+
+if(n<0){
+ArrayList<Intger>list=new Arraylist<>();
+
+return list;
+
+}
+
+// prepare a List For Each (n-1),(n-2),(n-3)
+ArrayList<Integer> path1=getStairs(n-1);
+ArrayList<Integer> path2=getStairs(n-2);
+ArrayList<Integer> path3=getStairs(n-3);
+ArrayList<Integer> res=new ArrayList<>();
+
+for(int p1:path1){
+res.add(1+p1);
+
+
+}
+
+
+for(int p1:path2){
+res.add(2+p1);
+
+
+}
+
+
+
+for(int p1:path3){
+res.add(3+p1);
+
+
+}
+return res;
