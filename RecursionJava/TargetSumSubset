@@ -1,1 +1,289 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.*;
+
+class Main {
+
+    public static void target(int[] arr,
+                              int index,
+                              String subset,
+                              int target,
+                              int sum) {
+
+        // Base Case
+        if (index == arr.length) {
+
+            if (sum == target) {
+                System.out.println("The  Sum of Subsets Equal To Target Are"+" "  +subset);
+            }
+
+            return;
+        }
+
+        // Include current element
+        target(arr,
+               index + 1,
+               subset + arr[index] + " ",
+               target,
+               sum + arr[index]);
+
+        // Exclude current element
+        target(arr,
+               index + 1,
+               subset,
+               target,
+               sum);
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {10, 20, 30, 40, 50};
+
+        int target = 50;
+
+        int sum = 0;
+
+        target(arr, 0, "", target, sum);
+    }
+}
+
+Ex->
+ARRAY = [10,20,30]
+TARGET = 30
+
+Function Call:
+
+target(arr,0,"",30,0)
+
+------------------------------------------------
+
+FORMAT
+
+target(index , subset , sum)
+
+------------------------------------------------
+
+START
+
+target(0,"",0)
+
+index = 0
+arr[0] = 10
+
+Two choices:
+
+1. Include 10
+2. Exclude 10
+
+------------------------------------------------
+                    target(0,"",0)
+                    /             \
+           include 10           exclude 10
+              /                     \
+     target(1,"10 ",10)       target(1,"",0)
+
+------------------------------------------------
+
+LEFT SIDE
+
+target(1,"10 ",10)
+
+arr[1] = 20
+
+Again two choices:
+
+1. Include 20
+2. Exclude 20
+
+------------------------------------------------
+
+        target(1,"10 ",10)
+           /             \
+ include 20              exclude 20
+    /                        \
+target(2,"10 20 ",30)    target(2,"10 ",10)
+
+------------------------------------------------
+
+FIRST PATH
+
+target(2,"10 20 ",30)
+
+arr[2] = 30
+
+Again two choices.
+
+------------------------------------------------
+
+        target(2,"10 20 ",30)
+             /              \
+include 30                 exclude 30
+   /                            \
+target(3,"10 20 30 ",60)   target(3,"10 20 ",30)
+
+------------------------------------------------
+
+BASE CASE
+
+index == arr.length
+
+CHECK SUM
+
+------------------------------------------------
+
+target(3,"10 20 30 ",60)
+
+sum = 60
+target = 30
+
+NOT equal
+So nothing prints.
+
+RETURN
+
+------------------------------------------------
+
+target(3,"10 20 ",30)
+
+sum = 30
+target = 30
+
+EQUAL
+
+PRINT:
+
+10 20
+
+RETURN
+
+------------------------------------------------
+
+NOW BACKTRACK
+
+Go to:
+
+target(2,"10 ",10)
+
+------------------------------------------------
+
+target(2,"10 ",10)
+
+arr[2] = 30
+
+Two choices:
+
+------------------------------------------------
+
+           target(2,"10 ",10)
+             /             \
+include 30                exclude 30
+   /                          \
+target(3,"10 30 ",40)    target(3,"10 ",10)
+
+------------------------------------------------
+
+Both fail because:
+
+40 != 30
+10 != 30
+
+Nothing prints.
+
+------------------------------------------------
+
+NOW GO TO RIGHT SUBTREE
+
+target(1,"",0)
+
+arr[1] = 20
+
+------------------------------------------------
+
+          target(1,"",0)
+            /          \
+include 20            exclude 20
+   /                       \
+target(2,"20 ",20)      target(2,"",0)
+
+------------------------------------------------
+
+LEFT SIDE
+
+target(2,"20 ",20)
+
+arr[2] = 30
+
+------------------------------------------------
+
+        target(2,"20 ",20)
+           /            \
+include 30             exclude 30
+   /                        \
+target(3,"20 30 ",50)   target(3,"20 ",20)
+
+------------------------------------------------
+
+Both fail.
+
+50 != 30
+20 != 30
+
+------------------------------------------------
+
+RIGHT SIDE
+
+target(2,"",0)
+
+arr[2] = 30
+
+------------------------------------------------
+
+         target(2,"",0)
+            /         \
+include 30          exclude 30
+   /                     \
+target(3,"30 ",30)   target(3,"",0)
+
+------------------------------------------------
+
+BASE CASE
+
+target(3,"30 ",30)
+
+sum == target
+
+PRINT:
+
+30
+
+------------------------------------------------
+
+FINAL OUTPUT
+
+10 20
+30
+
+------------------------------------------------
+
+MAIN IDEA
+
+At every index:
+
+You have TWO choices:
+
+1. Include current element
+2. Exclude current element
+
+This creates a recursion tree.
+
+------------------------------------------------
+
+
+
+
+
+
+
+
 
