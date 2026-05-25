@@ -1,0 +1,228 @@
+class Solution {
+    // same as print all the subsequrnce
+    public List<List<Integer>> subsets(int[] nums) {
+ 
+List<List<Integer>>ans=new ArrayList<>();
+ArrayList<Integer>diary=new ArrayList<>();
+
+   subser(nums,0,ans,diary);
+  return ans;
+
+    }
+    void subser(int[] nums,int index,List<List<Integer>> ans,ArrayList<Integer>diary){
+        ans.add(new ArrayList<>(diary));  //[]-> fir this because it is always subset
+
+        // for loop
+        for(int i=index;i<nums.length;i++){
+            diary.add(nums[i]);
+            //explore
+            // i se Explore Hota h 
+            subser(nums,i+1,ans,diary);
+            // remove
+            diary.remove(diary.size()-1);
+        }
+
+    }
+    
+}
+
+Ex->
+nums = [1,2,3]
+
+INITIAL:
+ans = []
+diary = []
+
+------------------------------------------------
+
+subser(0, [])
+
+ADD current subset:
+ans = [[]]
+
+FOR LOOP starts from index = 0
+
+------------------------------------------------
+i = 0
+
+PICK 1
+diary = [1]
+
+CALL:
+subser(1, [1])
+
+------------------------------------------------
+
+ADD current subset:
+ans = [[], [1]]
+
+FOR LOOP starts from index = 1
+
+------------------------------------------------
+i = 1
+
+PICK 2
+diary = [1,2]
+
+CALL:
+subser(2, [1,2])
+
+------------------------------------------------
+
+ADD current subset:
+ans = [[], [1], [1,2]]
+
+FOR LOOP starts from index = 2
+
+------------------------------------------------
+i = 2
+
+PICK 3
+diary = [1,2,3]
+
+CALL:
+subser(3, [1,2,3])
+
+------------------------------------------------
+
+ADD current subset:
+ans = [[], [1], [1,2], [1,2,3]]
+
+FOR LOOP DOES NOT RUN
+(index == nums.length)
+
+RETURN
+
+------------------------------------------------
+
+BACKTRACK
+REMOVE 3
+
+diary = [1,2]
+
+RETURN
+
+------------------------------------------------
+
+BACKTRACK
+REMOVE 2
+
+diary = [1]
+
+NEXT LOOP
+
+------------------------------------------------
+i = 2
+
+PICK 3
+diary = [1,3]
+
+CALL:
+subser(3,[1,3])
+
+ADD:
+ans = [[], [1], [1,2], [1,2,3], [1,3]]
+
+RETURN
+
+BACKTRACK
+REMOVE 3
+
+diary = [1]
+
+RETURN
+
+------------------------------------------------
+
+BACKTRACK
+REMOVE 1
+
+diary = []
+
+NEXT LOOP
+
+------------------------------------------------
+i = 1
+
+PICK 2
+diary = [2]
+
+CALL:
+subser(2,[2])
+
+ADD:
+ans = [[], [1], [1,2], [1,2,3], [1,3], [2]]
+
+------------------------------------------------
+i = 2
+
+PICK 3
+diary = [2,3]
+
+CALL:
+subser(3,[2,3])
+
+ADD:
+ans = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3]]
+
+RETURN
+
+BACKTRACK
+REMOVE 3
+
+diary = [2]
+
+RETURN
+
+------------------------------------------------
+
+BACKTRACK
+REMOVE 2
+
+diary = []
+
+NEXT LOOP
+
+------------------------------------------------
+i = 2
+
+PICK 3
+diary = [3]
+
+CALL:
+subser(3,[3])
+
+ADD:
+ans = [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
+
+RETURN
+
+BACKTRACK
+REMOVE 3
+
+diary = []
+
+------------------------------------------------
+
+FINAL ANSWER:
+
+[
+ [],
+ [1],
+ [1,2],
+ [1,2,3],
+ [1,3],
+ [2],
+ [2,3],
+ [3]
+]
+
+------------------------------------------------
+
+MAIN IDEA:
+
+1. Add current subset
+2. Pick element
+3. Explore deeper
+4. Remove element
+5. Try next element
