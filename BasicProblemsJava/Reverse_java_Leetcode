@@ -1,0 +1,107 @@
+problem Description
+🔄 Example 1: Positive Input (x = 1234)
+Initial values:
+
+x = 1234
+
+rev = 0
+
+Iteration 1:
+
+Extract digit: x % 10 = 4
+
+Update rev = 0 * 10 + 4 = 4
+
+Update x = 123
+
+Iteration 2:
+
+Extract digit: x % 10 = 3
+
+Update rev = 4 * 10 + 3 = 43
+
+Update x = 12
+
+Iteration 3:
+
+Extract digit: x % 10 = 2
+
+Update rev = 43 * 10 + 2 = 432
+
+Update x = 1
+
+Iteration 4:
+
+Extract digit: x % 10 = 1
+
+Update rev = 432 * 10 + 1 = 4321
+
+Update x = 0 → loop ends
+
+Final Result: rev(1234) = 4321
+
+🔄 Example 2: Negative Input (x = -1234)
+Initial values:
+
+x = -1234
+
+rev = 0
+
+Iteration 1:
+
+Extract digit: x % 10 = -4
+
+Update rev = 0 * 10 + (-4) = -4
+
+Update x = -123
+
+Iteration 2:
+
+Extract digit: x % 10 = -3
+
+Update rev = -4 * 10 + (-3) = -43
+
+Update x = -12
+
+Iteration 3:
+
+Extract digit: x % 10 = -2
+
+Update rev = -43 * 10 + (-2) = -432
+
+Update x = -1
+
+Iteration 4:
+
+Extract digit: x % 10 = -1
+
+Update rev = -432 * 10 + (-1) = -4321
+
+Update x = 0 → loop ends
+
+Final Result: rev(-1234) = -4321
+
+
+Code//
+
+int rev(int x){
+  long rev=0;
+  if(x!=0){
+    rev=rev*10+x%10;
+    x=x/10;
+    }
+  if(rev>Integer.Max_Value or rev<Integer.Min_Value){
+    return 0;
+    }
+  return (int)rev;
+  }
+
+  
+  
+  
+    
+
+
+
+
+
