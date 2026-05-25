@@ -1,0 +1,37 @@
+string rev(char[]s){
+  int left=0;
+  int right=s.length-1;
+  while(left<right){
+    char temp=s[left];
+    s[left]=s[right];
+    s[right]=temp;
+    left++;
+    right--;
+    
+    }
+  // It gives The Array In reverse Order
+  
+  Ex->
+  Example: Reverse the string "hello" using the given algorithm
+
+Initial array: ['h', 'e', 'l', 'l', 'o']
+Length: 5
+left = 0, right = 4
+
+Step 1: Check condition left < right → 0 < 4 → true
+- Swap s[0] and s[4] → 'h' ↔ 'o'
+- Array becomes: ['o', 'e', 'l', 'l', 'h']
+- Increment left → left = 1
+- Decrement right → right = 3
+
+Step 2: Check condition left < right → 1 < 3 → true
+- Swap s[1] and s[3] → 'e' ↔ 'l'
+- Array becomes: ['o', 'l', 'l', 'e', 'h']
+- Increment left → left = 2
+- Decrement right → right = 2
+
+Step 3: Check condition left < right → 2 < 2 → false
+Loop ends.
+
+Final reversed array: ['o', 'l', 'l', 'e', 'h']
+Result string: "olleh"
