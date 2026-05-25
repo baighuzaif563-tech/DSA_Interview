@@ -1,0 +1,46 @@
+// all permuatations or subsquence 
+
+      class Solution {
+    // same as print all the subsequrnce
+    public List<List<Integer>> subsets(int[] nums) {
+  List<List<Integer>> ans = new ArrayList<>();
+   int index=0;
+   ArrayList<Integer>diary=new ArrayList<>();
+   subsequence(nums,0,ans,diary);
+              return ans;
+
+        
+        
+    }
+public void subsequence(int[] nums,int index,List<List<Integer>>ans,ArrayList<Integer>diary) {
+
+   
+
+    ans.add(new ArrayList<>(diary)); // for empty always
+   
+
+   //always pick one element first
+
+   for(int i=index;i<nums.length;i++){
+
+    //pick
+   diary.add(nums[i]);
+ // explore it
+   subsequence(nums,i+1,ans,diary);
+
+   //backtrack or remove
+   diary.remove(diary.size()-1);//remove it 
+// not pick
+  
+
+
+   
+    }
+}
+
+
+
+
+
+    
+}
