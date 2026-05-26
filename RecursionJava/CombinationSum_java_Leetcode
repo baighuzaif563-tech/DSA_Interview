@@ -1,0 +1,110 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>>ans=new ArrayList<>();
+        int index=0;
+        ArrayList<Integer>diary=new ArrayList<>();
+    sum(candidates,0,ans,diary,0,target);
+
+        return ans;
+    }
+   
+    public void sum(int [] candidates,int index,List<List<Integer>>ans,ArrayList<Integer>diary,int sum,int target){
+
+        // Base Case
+
+if(sum==target){
+    ans.add(new ArrayList<>(diary));
+    return;
+}
+
+if(index==candidates.length || sum>target){
+    return;
+}
+
+   // pick
+
+diary.add(candidates[index]);// kitne bhi Baar le skte h 
+
+ // kitne bhi baar lene ke liye 
+ sum(candidates,index,ans,diary,sum+candidates[index],target);
+   // backtrack
+diary.remove(diary.size()-1);
+
+
+// agr nhi liya toh skip karjao
+
+sum(candidates,index+1,ans,diary,sum,target);
+
+   //skip 
+
+
+    }
+
+
+
+    
+}
+
+Ex->
+sum([],0,index=0)
+
+PICK 2
+[2] sum=2
+
+    PICK 2
+    [2,2] sum=4
+
+        PICK 2
+        [2,2,2] sum=6
+
+            PICK 2
+            [2,2,2,2] sum=8
+            > target
+            RETURN
+
+            SKIP 2
+
+            PICK 3
+            [2,2,2,3] sum=9
+            > target
+            RETURN
+
+        BACKTRACK
+
+        SKIP 2
+
+        PICK 3
+        [2,2,3] sum=7
+
+        == target
+        ADD in ans
+
+BACKTRACK
+
+SKIP 2
+
+PICK 3
+[3] sum=3
+
+    PICK 3
+    [3,3] sum=6
+
+        PICK 3
+        sum=9
+        RETURN
+
+No answer
+
+BACKTRACK
+
+SKIP 3
+
+PICK 6
+sum becomes >7
+RETURN
+
+PICK 7
+[7] sum=7
+
+== target
+ADD in ans
