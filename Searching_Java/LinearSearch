@@ -1,1 +1,115 @@
+//Code
 
+
+class Solution {
+    public int search(int arr[], int x) {
+        // code here
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+           if(arr[i]==x){
+               return i;
+           }
+           
+          
+        }
+         return -1;
+    }
+}
+T.c  o(n)
+s.c  o(1)
+
+arr = [10, 20, 30, 40, 50]
+x = 40
+
+Initial:
+
+n = 5
+
+Now loop will run from i = 0 to i = 4
+
+Step 1:
+
+i = 0
+arr[i] = 10
+
+Check:
+
+10 == 40 → False
+
+So move to next index.
+
+Step 2:
+
+i = 1
+arr[i] = 20
+
+Check:
+
+20 == 40 → False
+
+Move ahead.
+
+Step 3:
+
+i = 2
+arr[i] = 30
+
+Check:
+
+30 == 40 → False
+
+Move ahead.
+
+Step 4:
+
+i = 3
+arr[i] = 40
+
+Check:
+
+40 == 40 → True
+
+Condition becomes true, so function immediately returns:
+
+3
+
+because 40 is present at index 3.
+
+Final Output:
+
+3
+
+Another Example:
+
+arr = [5, 8, 2, 9]
+x = 7
+
+Step 1:
+
+i = 0
+5 == 7 → False
+
+Step 2:
+
+i = 1
+8 == 7 → False
+
+Step 3:
+
+i = 2
+2 == 7 → False
+
+Step 4:
+
+i = 3
+9 == 7 → False
+
+Loop ends.
+
+Since element was never found, function returns:
+
+-1
+
+Meaning:
+
+Element does not exist in array.
