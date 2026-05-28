@@ -1,0 +1,239 @@
+
+ import java.util.*;
+class Solution {
+    public int knapsack(int W, int val[], int wt[]) {
+        // code here
+        int n=val.length;
+       
+        int [][]dp=new int[n][W+1];
+        
+        for(int row[]:dp){
+            Arrays.fill(row,-1);
+        }
+       
+        
+       
+        return answer(val,wt,W,0,dp);
+    }
+    
+    int answer(int val[],int wt[],int capacity,int i,int [][] dp){
+        // Base Case
+        int n=val.length;
+        if(i==n){
+            return 0;
+        }
+        if(dp[i][capacity]!=-1){
+            return dp[i][capacity];
+        }
+        
+        if(wt[i]>capacity){
+            return dp[i][capacity]=answer(val,wt,capacity,i+1,dp);
+        }
+        
+            int c1=val[i]+answer(val,wt,capacity-wt[i],i+1,dp);
+            int c2=answer(val,wt,capacity,i+1,dp);
+        
+        return dp[i][capacity]=Math.max(c1,c2);
+        
+        
+    }
+}
+
+
+Ex->
+
+
+
+============= 0/1 KNAPSACK (MEMOIZATION) =============
+
+T.C = O(n × W)
+S.C = O(n × W)
+
+INPUT:
+val = [60,100,120]
+wt  = [10,20,30]
+W = 50
+
+------------------------------------------------------
+
+STEP 1:
+answer(50,0)
+
+Current Item:
+wt = 10
+val = 60
+
+Choices:
+
+TAKE:
+60 + answer(40,1)
+
+NOT TAKE:
+answer(50,1)
+
+------------------------------------------------------
+
+STEP 2:
+answer(40,1)
+
+Current Item:
+wt = 20
+val = 100
+
+Choices:
+
+TAKE:
+100 + answer(20,2)
+
+NOT TAKE:
+answer(40,2)
+
+------------------------------------------------------
+
+STEP 3:
+answer(20,2)
+
+Current Item:
+wt = 30
+
+30 > 20
+Cannot take
+
+So:
+answer(20,3)
+
+Base Case:
+i == n
+return 0
+
+Hence:
+answer(20,2) = 0
+
+So TAKE value becomes:
+
+100 + 0 = 100
+
+------------------------------------------------------
+
+STEP 4:
+answer(40,2)
+
+Current Item:
+wt = 30
+val = 120
+
+Choices:
+
+TAKE:
+120 + answer(10,3)
+= 120 + 0
+= 120
+
+NOT TAKE:
+answer(40,3)
+= 0
+
+Maximum = 120
+
+So:
+answer(40,2) = 120
+
+------------------------------------------------------
+
+STEP 5:
+Back to answer(40,1)
+
+TAKE     = 100
+NOT TAKE = 120
+
+Maximum = 120
+
+So:
+answer(40,1) = 120
+
+------------------------------------------------------
+
+STEP 6:
+Back to answer(50,0)
+
+TAKE RESULT:
+
+60 + 120 = 180
+
+------------------------------------------------------
+
+STEP 7:
+Now solve NOT TAKE path
+
+answer(50,1)
+
+Current Item:
+wt = 20
+val = 100
+
+Choices:
+
+TAKE:
+100 + answer(30,2)
+
+NOT TAKE:
+answer(50,2)
+
+------------------------------------------------------
+
+STEP 8:
+answer(30,2)
+
+Current Item:
+wt = 30
+val = 120
+
+Choices:
+
+TAKE:
+120 + answer(0,3)
+= 120
+
+NOT TAKE:
+0
+
+Maximum = 120
+
+So:
+answer(30,2) = 120
+
+------------------------------------------------------
+
+STEP 9:
+Back to answer(50,1)
+
+TAKE:
+100 + 120 = 220
+
+NOT TAKE:
+answer(50,2) = 120
+
+Maximum = 220
+
+So:
+answer(50,1) = 220
+
+------------------------------------------------------
+
+STEP 10:
+Final Comparison at answer(50,0)
+
+TAKE     = 180
+NOT TAKE = 220
+
+Maximum = 220
+
+FINAL ANSWER = 220
+
+Chosen values:
+100 + 120
+
+Chosen weights:
+20 + 30 = 50
+
+======================================================
