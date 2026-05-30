@@ -1,0 +1,31 @@
+// kadane mein ans and Best ending ko Lo
+steps of Kadanes
+1)Ya toh Lo and Ya mt Lo Agr Lere Ho toh a[i]+bestEnding Add Krdo 
+2) nhi Lere Toh simply Akela rhenda
+// Acc to q Best Option Lo 
+// Agr Max pocha h toh Math.max kro    Math.min kro   acc to q 
+
+
+code// 
+
+Best Ending Here is 
+
+minEnding =arr[0]
+MaxEnding=arr[0]
+int ans=arr[0]
+
+for(int i=1;i<n;i++){
+int c1=arr[i];
+int c2=arr[i]*minindex;
+int c3=arr[i]*maxIndex;
+
+maxEnding=max(c1,max(c2,c3))
+minEnding=min(c1,min(c2,c3))
+// our prefer is we want max so in ans reurn
+
+ans=max(res,max(minEnding,maxEnding));
+return ans;
+
+
+}}
+
