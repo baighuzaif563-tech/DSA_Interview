@@ -15,14 +15,16 @@
 public void subsequence(int[] nums,int index,List<List<Integer>>ans,ArrayList<Integer>diary) {
 
    
-
+if(index==n){
     ans.add(new ArrayList<>(diary)); // for empty always
-   
-
+   return
+}
    //always pick one element first
 
    for(int i=index;i<nums.length;i++){
-
+if(diary,contains(nums[i])){
+continue;
+}
     //pick
    diary.add(nums[i]);
  // explore it
