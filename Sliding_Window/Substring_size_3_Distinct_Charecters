@@ -1,0 +1,27 @@
+class Solution {
+    public int countGoodSubstrings(String s) {
+        int low=0;
+        int high=2;
+        int unique=0;
+       
+      
+        
+
+        while(high<s.length()){
+
+            char a=s.charAt(low);
+            char b=s.charAt(low+1);
+
+            char c=s.charAt(high);
+if(a!=b && b!=c && c!=a){
+    unique++;
+}
+low++;
+high++;
+
+        }
+
+
+        return unique;
+    }
+}
