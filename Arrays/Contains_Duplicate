@@ -1,0 +1,13 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+HashMap<Integer,Integer>map=new HashMap<>();
+for(int x:nums){
+    map.put(x,map.getOrDefault(x,0)+1);
+}
+
+if(map.size()==nums.length){
+    return false;
+}
+return true;
+    }
+}
