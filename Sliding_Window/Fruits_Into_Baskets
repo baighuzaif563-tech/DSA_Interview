@@ -1,0 +1,23 @@
+class Solution {
+    public int totalFruit(int[] fruits) {
+        int low=0;
+        int k=2;
+        int res=0;
+        HashMap<Integer,Integer>map=new HashMap<>();  
+        for(int high=0;high<fruits.length;high++){
+            int ch=fruits[high];
+            map.put(ch,map.getOrDefault(ch,0)+1);
+            while(map.size()>k){
+                int c=fruits[low];
+                map.put(c,map.get(c)-1);
+                if(map.get(c)==0){
+                    map.remove(c);
+                }
+                low++;
+            }
+            int len=high-low+1;
+            res=Math.max(res,len);
+            } 
+            return res;
+ }
+}
