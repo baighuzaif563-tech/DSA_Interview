@@ -1,0 +1,32 @@
+/*
+class Node{
+    int data;
+    Node next;
+
+    Node(int x){
+        data = x;
+        next = null;
+    }
+}
+*/
+class Solution {
+    public Node insertAtEnd(Node head, int x) {
+        // code here
+    Node newnode=new Node(x);
+    Node curr=head;
+      // If list is empty
+        if (curr == null) {
+            return newnode;
+        }
+
+    
+    while(curr.next!=null){
+        
+      
+        curr=curr.next;
+    }
+    curr.next=newnode;
+ 
+    return head;
+    }
+}
