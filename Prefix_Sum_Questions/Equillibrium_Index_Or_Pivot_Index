@@ -1,0 +1,21 @@
+class Solution {
+    public static int findEquilibrium(int arr[]) {
+        // code here
+        int left=0;
+        int sum=0;
+        int right=0;
+        for(int x:arr){
+            sum=sum+x;
+        }
+        for(int i=1;i<arr.length;i++){
+            left=left+arr[i-1];
+            right=sum-arr[i]-left;
+            if(left==right){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+
