@@ -1,0 +1,26 @@
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+      
+        int count =0;
+        HashMap<Character,Integer>map1=new HashMap<>();
+        for(char x:jewels.toCharArray()){
+            map1.put(x,map1.getOrDefault(x,0)+1);
+        }
+
+
+        HashMap<Character,Integer>map2=new HashMap<>();
+        for(char x:stones.toCharArray()){
+            map2.put(x,map2.getOrDefault(x,0)+1);
+        }
+
+        for(int i=0;i<jewels.length();i++){
+           char ch=jewels.charAt(i);
+           if(map2.containsKey(ch)){
+            count=count+map2.get(ch);
+           }
+        
+        }
+        return count;
+        
+    }
+}   
