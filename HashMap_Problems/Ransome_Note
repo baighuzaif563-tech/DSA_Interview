@@ -1,0 +1,24 @@
+class Solution {
+    public boolean canConstruct(String s, String t) {
+        HashMap<Character,Integer>map1=new HashMap<>();
+        HashMap<Character,Integer>map2=new HashMap<>();
+        for(char x:s.toCharArray()){
+            map1.put(x,map1.getOrDefault(x,0)+1);
+        }
+         for(char x:t.toCharArray()){
+            map2.put(x,map2.getOrDefault(x,0)+1);
+        }
+        for(char key:map1.keySet()){
+   int ch1=map1.get(key);
+int ch2=map2.getOrDefault(key,0);
+if(ch1>ch2){
+    return false;
+}
+            
+                
+            
+        }
+        return true;
+        
+    }
+}
