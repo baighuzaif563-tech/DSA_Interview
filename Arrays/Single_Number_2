@@ -1,0 +1,17 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        HashMap<Integer, Integer> map1 = new HashMap<>();
+
+        for (int x : nums) {
+            map1.put(x, map1.getOrDefault(x, 0) + 1);
+        }
+
+        for (int key : map1.keySet()) {
+            if (map1.get(key) == 1) {
+                return key;
+            }
+        }
+
+        return -1; // fallback, though problem guarantees one single number
+    }
+}
