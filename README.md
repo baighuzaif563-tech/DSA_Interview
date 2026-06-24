@@ -1,156 +1,80 @@
+# 🚀 Java DSA Repository
 
-# 🚀 Data Structures & Algorithms in Java
+## About
+This repository contains my solutions to Data Structures and Algorithms problems solved using Java.
 
-Welcome to my DSA repository! This repository contains my solutions to Data Structures and Algorithms problems solved using Java.
+### 👨‍💻 Profile
+- Name: Huzaif Baig
+- Language: Java
+- LeetCode: 106+ Problems
+- GeeksforGeeks: 53+ Problems
+- Current Focus: DSA + Spring Boot
 
-## 👨‍💻 About Me
+## Topics Covered
 
-Hi, I'm **Huzaif Baig**.
-
-🎓 Computer Science Student  
-☕ Java Developer  
-📚 Learning Data Structures & Algorithms  
-🌱 Currently learning Spring Boot & Backend Development
-
----
-
-## 📂 Topics Covered
-
-### Arrays
-- Array Basics
-- Traversal
-- Searching
-- Sorting Problems
-
-### Binary Search
-- Basic Binary Search
-- Search Space Problems
-- Advanced Binary Search Questions
-
-### HashMap
-- Frequency Counting
-- Hashing Problems
-- Lookup Optimization
-
-### Prefix Sum
-- Prefix Sum Techniques
-- Range Queries
-
-### Sliding Window
-- Fixed Size Window
-- Variable Size Window
-
-### Two Pointers
-- Pair Problems
-- Sorted Array Problems
-
-### Linked List
-- Singly Linked List
-- Doubly Linked List
-- Interview Problems
-
-### Stack
-- Monotonic Stack
-- Next Greater Element
-- Stack-based LeetCode Questions
-
-### Trees
-- Binary Tree
-- BST
-- Tree Traversals
-
-### Graphs
-- BFS
-- DFS
-- Graph Traversals
-
-### Heaps
-- Priority Queue
-- Heap Problems
-
-### Recursion
-- Basic Recursion
-- Backtracking Concepts
-
-### Dynamic Programming
-- Memoization
-- Tabulation
-- Classic DP Problems
-
-### Merge Intervals
-- Interval Merging Problems
-- Greedy Approaches
+| Topic | Problems | Status |
+|---------|---------|---------|
+| Arrays | ✔ | Completed |
+| Binary Search | ✔ | Completed |
+| HashMap | ✔ | Completed |
+| Prefix Sum | ✔ | Completed |
+| Sliding Window | ✔ | Completed |
+| Two Pointers | ✔ | Completed |
+| Linked List | ✔ | Completed |
+| Stack | ✔ | Completed |
+| Trees | ✔ | Ongoing |
+| Graph | ✔ | Ongoing |
+| Heap | ✔ | Ongoing |
+| DP | ✔ | Learning |
 
 ---
 
-## 🏆 Coding Profiles
+## Repository Structure
 
-### LeetCode
-- Username: **gne7HTblkT**
-- Problems Solved: **106+**
+📁 Arrays
 
-### GeeksforGeeks
-- Profile: **Huzaif Baig**
-- Problems Solved: **53+**
-- Coding Score: **137+**
+📁 Binary_Search
 
-### GitHub
-- Username: **baighuzaif563-tech**
+📁 HashMap_Problems
 
----
+📁 Prefix_Sum_Questions
 
-## 📈 Current Progress
+📁 Sliding_Window
 
-| Topic | Status |
-|--------|--------|
-| Arrays | ✅ |
-| Binary Search | ✅ |
-| Hashing | ✅ |
-| Prefix Sum | ✅ |
-| Sliding Window | ✅ |
-| Two Pointers | ✅ |
-| Linked List | ✅ |
-| Stack | ✅ |
-| Trees | ✅ |
-| Graph | ✅ |
-| Heap | ✅ |
-| Recursion | ✅ |
-| Dynamic Programming | 🚧 |
+📁 TwoPointers_Java
+
+📁 LinkedList
+
+📁 Stack_Question_Leetcode
+
+📁 Trees
+
+📁 Graph
+
+📁 HEAPS_LEETCODE
+
+📁 DP
+
+📁 RecursionJava
+
+📁 Merge_Intervals_Problems
 
 ---
 
-## 🎯 Goals for 2026
+## Coding Profiles
+
+- GitHub: baighuzaif563-tech
+- LeetCode: gne7HTblkT
+- GeeksforGeeks: Huzaif Baig
+
+---
+
+## Goals
 
 - Solve 500+ DSA Problems
 - Complete Striver A2Z Sheet
-- Master Java DSA
 - Learn Spring Boot
-- Build Production Level Backend Projects
-- Crack Software Engineering Internship
-
----
-
-## 🛠 Tech Stack
-
-- Java
-- Git
-- GitHub
-- VS Code
-- IntelliJ IDEA
-
----
-
-## ⭐ If you found this repository useful
-
-Please consider giving it a ⭐.
-
-It motivates me to keep learning and sharing.
-
----
-
-### Happy Coding 🚀
-Happy Coding!
-
+- Crack SDE Internship
 
 
 
