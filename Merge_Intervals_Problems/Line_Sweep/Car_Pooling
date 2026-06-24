@@ -1,0 +1,35 @@
+class Solution {
+    public boolean carPooling(int[][] trips, int capacity) {
+        int n=trips.length;
+        ArrayList<int[]>ans=new ArrayList<>();   //=1 or -1
+
+      for(int events[] : trips){
+
+            ans.add(new int[]{events[1], events[0]});   // start, +passengers
+            ans.add(new int[]{events[2], -events[0]});  // end, -passengers
+        }
+        Collections.sort(ans,(a,b)->{
+if(a[0]==b[0]){
+    return a[1]-b[1];
+}
+
+  return a[0]-b[0];  
+
+
+        });
+
+int count=0;
+int res=0;
+
+for(int events[]:ans){
+    count=count+events[1];//
+    res=Math.max(res,count);
+
+    if(res>capacity){
+        return false;
+    }
+}
+return true;
+
+    }
+}
