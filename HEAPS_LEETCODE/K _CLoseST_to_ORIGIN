@@ -1,1 +1,47 @@
+class pair{
+    int x;
+    int y;
+    int d;
+    pair(int x,int y,int d){
+        this.x=x;
+        this.y=y;
+        this.d=d;
+    }
+}
 
+
+class Solution {
+
+  public  int dist(int x,int y){
+    return x*x+y*y;
+  }
+    
+    public int[][] kClosest(int[][] points, int k) {
+         PriorityQueue<pair> pq = new PriorityQueue<>(
+            (a,b) -> b.d - a.d
+        );
+
+
+        for(int []p:points){
+            int x=p[0];
+            int y=p[1];
+            int distance=dist(x,y);
+            pq.add(new pair(x,y,distance));
+            if(pq.size()>k){
+                pq.poll();
+            }
+        }
+        int [][]ans=new int[k][2];
+
+int i=0;
+while(!pq.isEmpty()){
+    pair p=pq.poll();
+    ans[i][0]=p.x;
+    ans[i][1]=p.y;
+    i++;
+
+}
+return ans;
+
+    }
+}
