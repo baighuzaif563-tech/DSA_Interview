@@ -1,0 +1,9 @@
+class Solution {
+    public int maxProduct(int[] arr) {
+        Arrays.sort(arr);
+        int max=arr[arr.length-1]-1;
+          int second=arr[arr.length-2]-1;
+          int ans=max*second;
+          return ans;
+    }
+}
