@@ -1,0 +1,38 @@
+class Solution {
+    public int uniquePaths(int[][] grid) {
+        // code here
+        int i=0;
+        int j=0;
+        int n=grid.length;
+        int m=grid[0].length;
+        int [][]dp=new int[n][m];
+        
+        
+        for(int row[]: dp){
+            Arrays.fill(row,-1);
+        }
+        return ans(i,i,n,m,grid,dp);
+    }
+    
+     int ans(int i,int j,int n,int m,int [][]grid,int [][]dp){
+     
+        if(i<0 || i>=n || j<0 || j>=m){
+            return 0;   // sare 0 wale ek side 
+            // dp condition sbse last 
+        }
+
+         if( grid[i][j]==1){  // yhi ek mistake thi 
+            return 0;
+        }
+   if (i==n-1 && j==m-1){
+            return 1;
+        }
+
+        if(dp[i][j]!=-1){
+            return dp[i][j];
+        }
+       
+
+        return dp[i][j]=ans(i+1,j,n,m,grid,dp)+ans(i,j+1,n,m,grid,dp);
+    }
+};
