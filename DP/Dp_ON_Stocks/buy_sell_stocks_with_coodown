@@ -1,0 +1,31 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int k=2;
+        int n=prices.length;
+        int i=0;
+        int [][]dp=new int[n+1][k+1];
+        for(int row[]:dp){
+            Arrays.fill(row,-1);
+        }
+        return ans(prices,n,i,k,dp);
+    }
+       int ans(int arr[],int n,int i,int k,int[][]dp){   //2*k
+        if(i>=n || k==0){   // bas ye condition baki pura likh liya tha 
+            return 0;  
+        }
+        if(dp[i][k]!=-1){
+            return dp[i][k];
+        }
+        
+        if(k==2){
+            int c1=ans(arr,n,i+1,k-1,dp)-arr[i];  // sell kra 
+            int c2=ans(arr,n,i+1,k,dp);
+          return  dp[i][k]=Math.max(c1,c2);
+        }
+        else{ //sell
+               int c1=ans(arr,n,i+2,2,dp)+arr[i];
+            int c2=ans(arr,n,i+1,k,dp);
+          return  dp[i][k]=Math.max(c1,c2);
+        }
+    }
+}
