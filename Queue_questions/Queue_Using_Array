@@ -1,0 +1,61 @@
+class myQueue {
+Queue<Integer>q;
+    // Constructor
+    int n;
+    public myQueue(int n) {
+        // Define Data Structures
+            q=new LinkedList<>();
+            
+            this.n=n;
+    }
+
+    public boolean isEmpty() {
+        // Check if queue is empty
+        
+        return q.isEmpty();
+    }
+
+    public boolean isFull() {
+        // Check if queue is full
+    if(q.size()==n){
+        return true;
+    }
+    return false;
+    }
+
+    public void enqueue(int x) {
+        // 
+        if(!isFull()){
+        q.add(x);
+        }
+    }
+
+    public void dequeue() {
+        // Dequeue
+        if(!q.isEmpty()){
+            q.poll();
+        }
+    }
+
+    public int getFront() {
+        // Get front element
+if(q.isEmpty()){
+    return -1;
+}
+return q.peek();
+    }
+
+    public int getRear() {
+        // Get last 
+        if(q.isEmpty()){
+    return -1;
+}
+
+        return ((LinkedList<Integer>)q).peekLast();
+
+    }
+        
+        
+        
+    
+}
