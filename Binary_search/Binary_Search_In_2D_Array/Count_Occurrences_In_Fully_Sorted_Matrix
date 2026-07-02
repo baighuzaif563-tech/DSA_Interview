@@ -1,0 +1,55 @@
+class Solution {
+
+    public int countOccurrences(int[][] mat, int x) {
+        int n = mat.length;
+        int m = mat[0].length;
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            int first = lowerBound(mat[i], x);
+            int last = upperBound(mat[i], x);
+
+            count += (last - first);
+        }
+
+        return count;
+    }
+
+    // First index where arr[index] >= x
+    public int lowerBound(int[] arr, int x) {
+        int low = 0, high = arr.length - 1;
+        int ans = arr.length;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] >= x) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+
+    // First index where arr[index] > x
+    public int upperBound(int[] arr, int x) {
+        int low = 0, high = arr.length - 1;
+        int ans = arr.length;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] > x) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+}
