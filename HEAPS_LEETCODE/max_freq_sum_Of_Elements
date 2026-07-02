@@ -1,0 +1,42 @@
+class pair{
+    int element;
+    int freq;
+
+    pair(int element,int freq){
+        this.element=element;
+        this.freq=freq;
+    }
+}
+
+
+class Solution {
+
+
+    public int maxFrequencyElements(int[] nums) {
+        int sum=0;
+
+          HashMap<Integer,Integer>map=new HashMap<>();
+      for(int x:nums){
+        map.put(x,map.getOrDefault(x,0)+1);
+      }
+      PriorityQueue<pair>pq=new PriorityQueue<>(
+(a,b)->b.freq-a.freq
+      
+      
+      );
+
+    
+
+      for(int key:map.keySet()){
+        pq.add(new pair(key,map.get(key)));
+      }
+    
+int maxfreq=pq.peek().freq;    // itna 
+
+while(!pq.isEmpty() && pq.peek().freq==maxfreq){
+    sum=sum+pq.poll().freq;
+}
+         return sum;
+
+    }
+}
