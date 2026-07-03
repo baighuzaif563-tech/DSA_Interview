@@ -1,0 +1,22 @@
+class Solution {
+    
+ public void fun(Stack<Integer> st,int size,int mid){
+        
+        if(mid==size){
+            st.pop();
+            return;
+        }
+        int top=st.pop();
+            
+    fun(st, size-1,mid);
+    st.push(top);
+    }
+    // Function to delete middle element of a stack.
+    public void deleteMid(Stack<Integer> s) {
+        // code here
+        int mid=(s.size()+1)/2;
+     fun(s,s.size(),mid);
+        
+        
+    }
+}
