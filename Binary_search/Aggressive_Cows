@@ -1,0 +1,47 @@
+class Solution {
+    
+    boolean fun(int []arr,int guess,int k){
+        int cow=1;
+        int prev=arr[0];
+        for(int i=1;i<arr.length;i++){
+            int d=arr[i]-prev;
+            
+            if(d>=guess){
+                cow++;
+                
+                 prev=arr[i];
+            }
+            else{
+                continue;
+            }
+           
+        }
+        
+        if(cow>=k){
+            return true;
+        }
+        return false;
+    }
+    public int aggressiveCows(int[] arr, int k) {
+        // code here
+        int n=arr.length;
+        int low=1;
+        Arrays.sort(arr);
+        int high=arr[n-1]-arr[0];
+      int  ans=-1;
+        
+        while(low<=high){
+            int mid=(low+high)/2;
+            
+            boolean r=fun(arr,mid,k);
+            if(r==true){
+                ans=mid;
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return ans;
+    }
+}
