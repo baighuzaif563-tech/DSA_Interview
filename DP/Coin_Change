@@ -1,0 +1,42 @@
+class Solution {
+    
+   int ans(int[]coins,int i,int target,int sum,int[][]dp){
+     if (sum == target){
+            return 1;
+     }
+       if(i==coins.length){
+           return 0;
+       }
+       if(sum>target){
+           return 0;
+       }
+       
+       if(dp[i][sum]!=-1){
+          return dp[i][sum];
+       }
+       
+       int take=0;
+       int nottake=0;
+       
+       take=ans(coins,i,target,sum+coins[i],dp);
+       nottake=ans(coins,i+1,target,sum,dp);
+       
+      
+      
+    
+       return dp[i][sum]=take+nottake;
+   } 
+    
+   
+    public int count(int coins[], int sum) {
+        // code here.
+        int n=coins.length;
+        int[][]dp=new int[n+1][sum+1];
+        for(int row[]:dp){
+            Arrays.fill(row,-1);
+        }
+        int target=0;
+        int i=0;
+        return ans (coins,i,sum,target,dp);
+    }
+}
