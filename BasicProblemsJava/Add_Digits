@@ -1,0 +1,36 @@
+class Solution {
+
+
+    public int digits(int num){
+        int sum=0;
+            while(num!=0){
+int digit=num%10;
+sum=sum+digit;
+num=num/10;
+
+    }
+return sum;
+    }
+    public int addDigits(int num) {
+    
+    int ans=digits(num);
+
+   while(ans>=10){   // jb tk nhi hota tb tk chalao
+    ans=digits(ans);
+   }  
+
+  
+
+    
+    
+    
+return ans;
+    
+    
+
+
+
+    
+}
+
+}
