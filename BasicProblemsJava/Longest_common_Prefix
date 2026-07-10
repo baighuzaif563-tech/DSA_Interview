@@ -1,0 +1,28 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+
+    Arrays.sort(strs);
+        char []first=strs[0].toCharArray();   // pehla aagya
+                                  
+        char[]last=strs[strs.length-1].toCharArray();   // dusra agaya 
+     int min=Math.min(first.length,last.length);
+        String temp="";
+
+
+       int i=0;
+       while(i<min){
+    
+            if(first[i]!=last[i]){
+               break;
+            }
+            else{
+                temp=temp+first[i];
+                i++;
+            }
+        }
+
+        return temp;
+
+
+    }
+}
