@@ -1,0 +1,49 @@
+class Solution {
+
+    int word1(String word1,String word2,int i,int j,int [][]dp){
+
+  if(i==word1.length()){
+    return  word2.length()-j;
+  }
+
+  if(j==word2.length()){
+    return  word1.length()-i;
+  }
+  if(dp[i][j]!=-1){
+    return dp[i][j];
+  }
+  
+     if(word1.charAt(i)==word2.charAt(j))  {
+        return dp[i][j]= word1(word1,word2,i+1,j+1,dp);
+     } 
+
+     int c1=1+word1(word1,word2,i+1,j,dp);
+     int c2=1+word1(word1,word2,i,j+1,dp);
+     return dp[i][j]= Math.min(c1,c2);
+
+
+
+    }
+ 
+
+
+
+
+
+
+
+    public int minDistance(String word1, String word2) {
+        // do baar call krna pdenga 
+       int s1=word1.length();
+       int s2=word2.length();
+       int res=Math.max(s1,s2);
+       int [][]dp=new int[res][res];
+       for(int row[]:dp){
+        Arrays.fill(row,-1);
+       }
+      
+       return word1(word1,word2,0,0,dp);
+ 
+
+    }
+}
