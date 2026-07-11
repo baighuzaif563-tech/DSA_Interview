@@ -1,0 +1,35 @@
+class Solution {
+    
+    public int ans(int val[],int i,int wt[],int capacity,int[][]dp){
+        if(i==val.length){
+            return 0;
+        }
+        if(dp[i][capacity]!=-1){
+            return dp[i][capacity];
+        }
+        if(wt[i]>capacity){
+    return dp[i][capacity]= ans(val,i+1,wt,capacity,dp);
+    
+    
+}
+
+else{
+    int take=val[i]+ans(val,i,wt,capacity-wt[i],dp);
+    int nottake=ans(val,i+1,wt,capacity,dp);
+    return dp[i][capacity]= Math.max(take,nottake);
+}
+
+}
+    public int knapSack(int val[], int wt[], int capacity) {
+        // code here
+        int n=val.length;
+        int [][]dp=new int[n+1][capacity+1];
+        
+    for(int row[]:dp){
+        Arrays.fill(row,-1);
+    }
+        
+        return ans(val,0,wt,capacity,dp);
+        
+    }
+}
