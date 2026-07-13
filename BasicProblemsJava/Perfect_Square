@@ -1,0 +1,13 @@
+class Solution {
+    public boolean isPerfectSquare(int n) {
+        if(n==1){
+            return true;
+        }
+      for(long i=1;i*i<=n;i++){   // imp line i*i tis is very imp
+        if(i*i==n){
+            return true;
+        }
+      }
+       return false;
+    }
+}
