@@ -1,0 +1,16 @@
+class Solution {
+    public int minDiff(int[] arr) {
+        // code here
+        Arrays.sort(arr);
+        int i=1;
+        int prev=arr[0];
+        int diff=Integer.MAX_VALUE;
+        while(i<arr.length){
+            diff=Math.min(diff,arr[i]-prev);
+            prev=arr[i];
+            i++;
+        }
+        
+        return diff;
+    }
+}
