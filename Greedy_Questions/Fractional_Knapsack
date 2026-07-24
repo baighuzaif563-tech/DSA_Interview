@@ -1,0 +1,41 @@
+class Solution{
+    public double fractionalKnapsack(int[] val, int[] wt, int capacity) {
+        // code here
+        double sum=0;
+        int n=val.length;
+        double[][]ans=new double[n][2];
+        for(int i=0;i<n;i++){
+            ans[i][0]=wt[i];
+            ans[i][1]=(double)val[i]/wt[i];
+        }
+        Arrays.sort(ans,(a,b)->Double.compare(b[1],a[1]));  //  descending sorting
+        
+        
+        
+        for(int i=0;i<ans.length;i++){
+            if(capacity==0){
+                break;
+            }
+        // Isme ab Wt and profit store hogya h 
+        if(ans[i][0]<=capacity){
+             sum=sum+ans[i][0]*ans[i][1];
+            capacity=capacity-(int)ans[i][0];
+            
+        }
+        else{
+           sum=sum+capacity*ans[i][1];
+           capacity=0;
+        }
+        
+        }
+        
+    
+    
+
+        
+        
+        
+        return sum;
+    }
+    
+}
