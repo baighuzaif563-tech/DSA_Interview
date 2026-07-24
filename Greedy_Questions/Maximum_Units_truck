@@ -1,0 +1,34 @@
+class Solution {
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
+        Arrays.sort(boxTypes,(a,b)->b[1]-a[1]);  // sort in ascending way
+  int sum=0;
+  int remCapacity=truckSize;
+  for(int i=0;i<boxTypes.length;i++){
+
+
+    if (remCapacity==0){
+        break;
+    }
+    else{
+        if(boxTypes[i][0]<remCapacity){
+            int prod=boxTypes[i][0]*boxTypes[i][1];
+            sum=sum+prod;
+            remCapacity=remCapacity-boxTypes[i][0];
+        }
+        else{
+            int prod1=remCapacity*boxTypes[i][1];
+            sum=sum+prod1;
+            remCapacity=0;
+            
+        }
+    }
+  }
+
+
+
+
+return sum;
+
+
+    }
+}
