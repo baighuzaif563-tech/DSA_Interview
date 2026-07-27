@@ -1,0 +1,28 @@
+class Solution {
+void fun(int[] candidates,int sum,int start, int target,ArrayList<Integer>diary,List<List<Integer>>ans){
+    if(sum==target){
+        ans.add(new ArrayList<>(diary));
+        return ;
+    }
+    for(int i=start;i<candidates.length;i++){
+    if(candidates[i]+sum>target){
+        break;
+    }
+    if( i>start &&candidates[i]==candidates[i-1]){
+        continue;
+    }
+    diary.add(candidates[i]);
+    fun(candidates,sum+candidates[i],i+1,target,diary,ans);
+    diary.remove(diary.size()-1);
+}
+
+}
+    
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>>ansa=new ArrayList<>();
+        ArrayList<Integer>list=new ArrayList<>();
+        Arrays.sort(candidates);
+        fun(candidates,0,0,target,list,ansa);
+        return ansa;
+    }
+}
