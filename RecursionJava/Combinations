@@ -1,0 +1,28 @@
+class Solution {
+
+    void fun(int n,int k,int start,ArrayList<Integer>diary,List<List<Integer>>ans){
+ 
+  if(diary.size()==k){
+    ans.add(new ArrayList<>(diary));
+    return;
+  }
+    // no daldiya
+
+   for(int i=start;i<=n;i++){
+   
+     diary.add(i);
+     
+    
+     fun(n,k,i+1,diary,ans);
+     diary.remove(diary.size()-1);
+   
+   }
+     
+    }
+    public List<List<Integer>> combine(int n, int k) {
+    List<List<Integer>>ans=new ArrayList<>();
+    ArrayList<Integer>diary=new ArrayList<>();
+ fun(n,k,1,diary,ans);
+return ans;
+    }
+}
