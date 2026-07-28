@@ -1,0 +1,27 @@
+class Solution {
+    void fun(String tiles,boolean []vis,StringBuilder diary,Set<String>ans){
+        
+            
+        
+        for(int i=0;i<tiles.length();i++){
+            if(vis[i]){
+continue;
+            }
+            vis[i]=true;
+            diary.append(tiles.charAt(i));
+            ans.add(diary.toString());
+            fun(tiles,vis,diary,ans);
+            diary.deleteCharAt(diary.length() - 1);
+            vis[i]=false;
+        }
+
+
+    }
+    public int numTilePossibilities(String tiles) {
+        StringBuilder diary=new StringBuilder();
+        Set<String>ans=new HashSet<>();
+        boolean[]vis=new boolean[tiles.length()];
+        fun(tiles,vis,diary,ans);
+        return ans.size();
+    }
+}
