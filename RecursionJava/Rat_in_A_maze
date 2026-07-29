@@ -1,0 +1,51 @@
+class Solution {
+    
+    void fun(int[][] maze,boolean [][]vis,int n,int m,int i,int j,String diary,ArrayList<String>ans){
+        if(i==n-1 && j==m-1){
+            ans.add(diary);
+            return;
+        }
+        // all the 4 directions are 
+    
+            
+            // all the moves
+            
+      vis[i][j]=true;
+      
+      // right
+      if(i+1<n && maze[i+1][j]==1 && !vis[i+1][j]){
+          fun(maze,vis,n,m,i+1,j,diary+"D",ans);
+      }
+      //Up
+      if(i-1>=0 && maze[i-1][j]==1 &&!vis[i-1][j]){
+          fun(maze,vis,n,m,i-1,j,diary+"U",ans);
+      }
+      //down
+      if(j+1<m && maze[i][j+1]==1 && !vis[i][j+1]){
+          fun(maze,vis,n,m,i,j+1,diary+"R",ans);
+      }
+       
+       
+        if(j-1>=0 && maze[i][j-1]==1 && !vis[i][j-1]){
+          fun(maze,vis,n,m,i,j-1,diary+"L",ans);
+      } 
+        vis[i][j]=false;
+        
+    }
+    public ArrayList<String> ratInMaze(int[][] maze) {
+        // code here
+        ArrayList<String>ans=new ArrayList<>();
+         String diary="";
+        int n=maze.length;
+        int m=maze[0].length;
+        boolean[][]vis=new boolean[n][m];
+       if(maze[0][0]==0){
+           return ans;
+       }
+       fun(maze,vis,n,m,0,0,diary,ans);
+       Collections.sort(ans);
+       return ans;
+        
+        
+    }
+}
