@@ -1,0 +1,38 @@
+class Solution {
+    
+    int fun(int[][]mat,int i,int j,int n,int m,int[][]dp){
+      
+        if(i>=n|| j<0 || j>=m){
+            return Integer.MIN_VALUE;
+        }
+        
+        
+          if(i==n-1){
+            return mat[i][j];
+        }
+        
+        if(dp[i][j]!=-1){
+            return dp[i][j];
+        }
+        int right=fun(mat,i+1,j-1,n,m,dp);
+        int diagonalleft=fun(mat,i+1,j,n,m,dp);
+        int rightdiagonal=fun(mat,i+1,j+1,n,m,dp);
+        return dp[i][j]=mat[i][j]+Math.max(right,Math.max(diagonalleft,rightdiagonal));
+        
+    }
+    public int maximumPath(int[][] mat) {
+        // code here
+  int ans=Integer.MIN_VALUE;
+  int m=mat[0].length;
+  int n=mat.length;
+  int[][]dp=new int[n+1][m+1];
+  for(int []row:dp){
+      Arrays.fill(row,-1);
+  }
+  for(int j=0;j<m;j++){
+      ans=Math.max(ans,fun(mat,0,j,n,m,dp));
+  }
+    return ans;  
+       
+    }
+}
