@@ -1,1 +1,24 @@
 
+class Solution {
+    
+    void helper(ArrayList<ArrayList<Integer>> adj,boolean[]vis,ArrayList<Integer>ans,int node){
+        vis[node]=true;
+        ans.add(node);
+        for(int x:adj.get(node)){
+            if(!vis[x]){
+                
+                helper(adj,vis,ans,x);
+            }
+        }
+    }
+    public ArrayList<Integer> dfs(ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        ArrayList<Integer>ans=new ArrayList<>();
+        
+        boolean[]vis=new boolean[adj.size()];
+        
+        helper(adj,vis,ans,0);
+        return ans;
+   
+    }
+}
