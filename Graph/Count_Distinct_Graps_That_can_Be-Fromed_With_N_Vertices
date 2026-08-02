@@ -1,0 +1,8 @@
+class Solution {
+    static long count(int n) {
+        // code here
+        long x=n*(n-1)/2;
+        long ans=(long)Math.pow(2,x);
+        return ans;
+    }
+}
